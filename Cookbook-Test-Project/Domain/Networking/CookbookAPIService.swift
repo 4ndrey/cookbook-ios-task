@@ -8,11 +8,11 @@
 
 import Foundation
 import ReactiveSwift
+import Result
 
 protocol CookbookAPIServicing {
-    func getRecipes() -> SignalProducer<Any?,RequestError>
+    func getRecipes() -> SignalProducer<[Receipt],RequestError>
 }
-
 
 /**
  Concrete class for creating api calls to our server
@@ -25,11 +25,13 @@ class CookbookAPIService : APIService, CookbookAPIServicing {
         return relativeURL
     }
     
-    internal func getRecipes() -> SignalProducer<Any?, RequestError> {
+    internal func getRecipes() -> SignalProducer<[Receipt], RequestError> {
         return self.request("recipes")
             .mapError { .network($0) }
-           // .map{ Any? -> Array Of Recipes}
+            .attemptMap { response in
+                guard let items = response as? [Any] else { return Result.failure(RequestError.mapping()) }
+                do { return Result.success(try [Receipt].decode(items)) }
+                catch { return Result.failure(RequestError.mapping()) }
+            }
     }
-
-    
 }

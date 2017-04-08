@@ -13,7 +13,9 @@ pod 'ReactiveCocoa', '5.0.2'
 pod 'ReactiveSwift', '1.1.1'
 pod 'SnapKit', '~> 3.0'
 pod 'Alamofire', '~> 4.0'
+pod 'Himotoki', '~> 3.0'
 pod 'Reqres'
+pod 'ACKategories'
 
 end
 

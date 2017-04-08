@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import ReactiveSwift
 import Result
-//import ACKReactiveExtensions
 
 typealias AuthHandler = Action<NetworkError, (), NSError>
 
