@@ -18,8 +18,9 @@ class ListCell: BaseCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = UILabel()
-        titleLabel.font = UIFont.base
+        titleLabel.font = UIFont.base()
         titleLabel.textColor = UIColor.blue
+        titleLabel.numberOfLines = 0
 
         valuesView = UIStackView()
         valuesView.axis = .vertical

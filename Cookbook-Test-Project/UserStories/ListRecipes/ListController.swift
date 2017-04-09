@@ -36,7 +36,7 @@ class ListController: BaseViewController {
         let titleLabel = UILabel()
 
         let attributes: NSDictionary = [
-            NSFontAttributeName:UIFont.base,
+            NSFontAttributeName:UIFont.base(),
             NSForegroundColorAttributeName:UIColor.baseBlack,
             NSKernAttributeName:-0.4
         ]
@@ -70,10 +70,12 @@ class ListController: BaseViewController {
         }
         tableAdapter = TableAdapter(tableView: tableView)
         tableAdapter?.didSelect = { receipt in
+            self.navigationController?.pushViewController(DetailsController(), animated: true)
+
             self.api.getRecipe(id: receipt.id).startWithResult { result in
                 print(result)
             }
-            self.api.rateRecipe(id: receipt.id, score: 4).startWithResult { _ in }
+//            self.api.rateRecipe(id: receipt.id, score: 4).startWithResult { _ in }
         }
 
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_add"), style: .plain, target: self, action: #selector(addReceipt))

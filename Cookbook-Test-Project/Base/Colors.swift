@@ -11,4 +11,5 @@ import UIKit
 extension UIColor {
     static var baseBlack: UIColor { return UIColor(hex: 0x030303) }
     static var separator: UIColor { return UIColor(hex: 0xf6f6f6) }
+    static var receiptColor: UIColor { return UIColor(hex: 0x554d44) }
 }
