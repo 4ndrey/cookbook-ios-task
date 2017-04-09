@@ -53,6 +53,7 @@ class ListController: BaseViewController {
 
         let addButton = UIButton()
         addButton.setImage(#imageLiteral(resourceName: "ic_add"), for: .normal)
+        addButton.addTarget(self, action: #selector(addReceipt), for: .touchUpInside)
         view.addSubview(addButton)
         addButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(32)
@@ -82,7 +83,7 @@ class ListController: BaseViewController {
     }
 
     func addReceipt() {
-        
+        navigationController?.pushViewController(AddController(), animated: true)
     }
 }
 

@@ -183,10 +183,6 @@ class DetailsController: BaseViewController, UIScrollViewDelegate {
         super.viewDidAppear(animated)
     }
 
-    func back() {
-        navigationController?.popViewController(animated: true)
-    }
-
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     var lastOffsetY = CGFloat(0)

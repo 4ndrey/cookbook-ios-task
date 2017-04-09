@@ -9,5 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    func back() {
+        navigationController?.popViewController(animated: true)
+    }
 }
