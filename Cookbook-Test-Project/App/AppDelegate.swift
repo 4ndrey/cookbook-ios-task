@@ -14,8 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let navController = UINavigationController(rootViewController: ListController())
+        navController.isNavigationBarHidden = true
+
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ListController()
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
 
         return true

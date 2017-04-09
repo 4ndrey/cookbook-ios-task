@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9C6BCDFC5AB18D082B997E62 /* Pods_Cookbook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE01A7B96F1ED69829CA3A79 /* Pods_Cookbook.framework */; };
+		A11EAD7D1E993AF400AB8F6E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EAD7C1E993AF400AB8F6E /* Fonts.swift */; };
+		A11EAD7F1E9941F200AB8F6E /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EAD7E1E9941F200AB8F6E /* TableAdapter.swift */; };
+		A11EAD811E99423F00AB8F6E /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EAD801E99423F00AB8F6E /* BaseCell.swift */; };
 		A13722E21E98AE800084F01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13722D81E98AE800084F01E /* AppDelegate.swift */; };
 		A13722E61E98AE800084F01E /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13722E01E98AE800084F01E /* ListController.swift */; };
 		A13722EC1E9903240084F01E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13722E91E9903240084F01E /* APIService.swift */; };
@@ -15,11 +18,16 @@
 		A13722EE1E9903240084F01E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13722EB1E9903240084F01E /* Network.swift */; };
 		A13722F01E9903380084F01E /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13722EF1E9903380084F01E /* Receipt.swift */; };
 		A13722F31E99054F0084F01E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13722F21E99054F0084F01E /* BaseViewController.swift */; };
+		A1E5A6D21E99449300A8CA15 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5A6D11E99449300A8CA15 /* ListCell.swift */; };
+		A1E5A6D41E994D3800A8CA15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5A6D31E994D3800A8CA15 /* Colors.swift */; };
 		B4B8150C1E27831800C8A24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8150B1E27831800C8A24B /* Assets.xcassets */; };
 		B4B8150F1E27831800C8A24B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B8150D1E27831800C8A24B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A11EAD7C1E993AF400AB8F6E /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		A11EAD7E1E9941F200AB8F6E /* TableAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
+		A11EAD801E99423F00AB8F6E /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		A13722D81E98AE800084F01E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A13722E01E98AE800084F01E /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		A13722E91E9903240084F01E /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -27,6 +35,8 @@
 		A13722EB1E9903240084F01E /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A13722EF1E9903380084F01E /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		A13722F21E99054F0084F01E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A1E5A6D11E99449300A8CA15 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		A1E5A6D31E994D3800A8CA15 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B4B814FF1E27831800C8A24B /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B8150B1E27831800C8A24B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B8150E1E27831800C8A24B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A13722E01E98AE800084F01E /* ListController.swift */,
+				A1E5A6D11E99449300A8CA15 /* ListCell.swift */,
 			);
 			path = ListRecipes;
 			sourceTree = "<group>";
@@ -128,6 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				A13722F21E99054F0084F01E /* BaseViewController.swift */,
+				A11EAD801E99423F00AB8F6E /* BaseCell.swift */,
+				A11EAD7E1E9941F200AB8F6E /* TableAdapter.swift */,
+				A11EAD7C1E993AF400AB8F6E /* Fonts.swift */,
+				A1E5A6D31E994D3800A8CA15 /* Colors.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -295,9 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11EAD811E99423F00AB8F6E /* BaseCell.swift in Sources */,
+				A1E5A6D41E994D3800A8CA15 /* Colors.swift in Sources */,
+				A11EAD7D1E993AF400AB8F6E /* Fonts.swift in Sources */,
 				A13722F01E9903380084F01E /* Receipt.swift in Sources */,
 				A13722EE1E9903240084F01E /* Network.swift in Sources */,
 				A13722E61E98AE800084F01E /* ListController.swift in Sources */,
+				A11EAD7F1E9941F200AB8F6E /* TableAdapter.swift in Sources */,
+				A1E5A6D21E99449300A8CA15 /* ListCell.swift in Sources */,
 				A13722ED1E9903240084F01E /* CookbookAPIService.swift in Sources */,
 				A13722EC1E9903240084F01E /* APIService.swift in Sources */,
 				A13722F31E99054F0084F01E /* BaseViewController.swift in Sources */,

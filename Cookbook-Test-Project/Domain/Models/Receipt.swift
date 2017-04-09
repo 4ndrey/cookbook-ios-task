@@ -14,6 +14,10 @@ struct Receipt: Decodable {
     let duration: Int
     let score: Int
 
+    let description: String?
+    let ingredients: [String]?
+    let info: String?
+
     // MARK: Decodable
 
     static func decode(_ e: Extractor) throws -> Receipt {
@@ -21,7 +25,11 @@ struct Receipt: Decodable {
             id: e <| "id",
             name: e <| "name",
             duration: e <| "duration",
-            score: e <| "score"
+            score: e <| "score",
+
+            description: e <|? "description",
+            ingredients: e <||? "ingredients",
+            info: e <|? "info"
         )
     }
 }
