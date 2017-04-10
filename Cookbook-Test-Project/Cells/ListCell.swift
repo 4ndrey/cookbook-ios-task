@@ -17,6 +17,8 @@ class ListCell: BaseCell {
     var scoreView: ScoreView
     var timeView: TimeView
 
+    class var height: CGFloat { return 142 }
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = UILabel()
         titleLabel.font = UIFont.base()

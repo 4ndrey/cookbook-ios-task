@@ -38,7 +38,7 @@ class ListController: BaseViewController {
 
         // prepare table view
         let tableView = UITableView()
-        tableView.rowHeight = 142
+        tableView.rowHeight = ListCell.height
         tableView.separatorStyle = .none
         
         tableAdapter = TableAdapter(tableView: tableView)
