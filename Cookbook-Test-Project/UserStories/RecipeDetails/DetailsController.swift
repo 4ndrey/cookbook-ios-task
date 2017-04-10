@@ -12,12 +12,12 @@ class DetailsController: BaseViewController {
 
     private var viewModel: DetailsViewModeling?
 
-    private var coverView: DarkenImageView?
-    private var titleLabel: UILabel?
-    private var scoreView: ScoreView?
-    private var timeView: TimeView?
-    private var textView: TextView?
-    private var rateControl: RateControl?
+    private var coverView: DarkenImageView!
+    private var titleLabel: UILabel!
+    private var scoreView: ScoreView!
+    private var timeView: TimeView!
+    private var textView: TextView!
+    private var rateControl: RateControl!
 
     convenience init(viewModel: DetailsViewModeling) {
         self.init(nibName: nil, bundle: nil)
@@ -53,10 +53,10 @@ class DetailsController: BaseViewController {
         scoreView = ScoreView(style: .white, height: 32)
         textView = TextView()
         rateControl = RateControl()
-        rateControl?.action = { [weak self] score in self?.viewModel?.rate(score: score) }
+        rateControl.action = { [weak self] score in self?.viewModel?.rate(score: score) }
 
         // layout views
-        DetailsViewLayout(root: view).layout(navBar: navBar, coverView: coverView!, titleLabel: titleLabel!, timeView: timeView!, scoreView: scoreView!, textView: textView!, rateView: rateControl!)
+        DetailsViewLayout(root: view).layout(navBar: navBar, coverView: coverView, titleLabel: titleLabel, timeView: timeView, scoreView: scoreView, textView: textView, rateView: rateControl)
     }
 
     override func viewWillAppear(_ animated: Bool) {

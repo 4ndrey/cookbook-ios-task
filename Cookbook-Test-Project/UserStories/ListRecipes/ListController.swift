@@ -17,10 +17,10 @@ class ListController: BaseViewController {
         self.init(nibName: nil, bundle: nil)
         
         viewModel.recipes.producer
-            .on(value: { self.tableAdapter?.update(collection: $0) })
+            .on(value: { [weak self] in self?.tableAdapter?.update(collection: $0) })
             .start()
         viewModel.errorMessage.producer
-            .on(value: { self.displayErrorMessage($0) })
+            .on(value: { [weak self] in self?.displayErrorMessage($0) })
             .start()
         self.viewModel = viewModel
     }

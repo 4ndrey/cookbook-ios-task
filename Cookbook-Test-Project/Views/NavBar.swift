@@ -66,7 +66,7 @@ class NavBar: UIView {
         addSubview(rightItems)
         rightItems.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-13)
-            make.top.equalToSuperview().offset(31.5)
+            make.centerY.equalTo(titleLabel)
         }
     }
 }
