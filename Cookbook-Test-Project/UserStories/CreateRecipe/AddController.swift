@@ -38,6 +38,7 @@ class AddController: BaseViewController {
         viewModel.input.name <~ nameContainer.container.textField.reactive.continuousTextValues
         viewModel.input.info <~ infoContainer.container.textField.reactive.continuousTextValues
         viewModel.input.description <~ descContainer.container.textField.reactive.continuousTextValues
+        viewModel.input.ingredients <~ ingredientsView.values
         viewModel.input.duration <~ durationContainer.durationField.reactive.continuousTextValues.map { Int($0 ?? "") ?? 0 }
 
         self.viewModel = viewModel
@@ -78,7 +79,6 @@ class AddController: BaseViewController {
     func addReceipt() {
         view.endEditing(true)
         createButton.isEnabled = false // avoid repeated taps
-        viewModel?.input.ingredients.value = ingredientsView.values // can be wrapped via custom reactive extension
         viewModel?.addReceipt()
     }
 }

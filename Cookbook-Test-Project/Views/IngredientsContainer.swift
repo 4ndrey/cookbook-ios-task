@@ -7,21 +7,14 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 
 class IngredientsContainer: UIView {
     private let ingredients: UIStackView
 
-    var values: [String] {
-        var array = [String]()
-        for c in ingredients.arrangedSubviews {
-            if let textContainer = c as? TextFieldContainer {
-                if let text = textContainer.textField.text {
-                    array.append(text)
-                }
-            }
-        }
-        return array
-    }
+    var values = MutableProperty<[String]>([])
 
     override init(frame: CGRect) {
         ingredients = UIStackView()
@@ -79,6 +72,21 @@ class IngredientsContainer: UIView {
         ingredients.addArrangedSubview(c)
         c.snp.makeConstraints { make in
             make.height.equalTo(40)
+        }
+
+        var array = [Signal<String, NoError>]()
+        for c in ingredients.arrangedSubviews {
+            if let textContainer = c as? TextFieldContainer {
+                array.append(textContainer.textField.reactive.continuousTextValues.map { $0 ?? "" })
+            }
+        }
+        values <~ Signal.combineLatest(array).map { $0.filter { $0.length > 0 } }
+
+        // update last values
+        for c in ingredients.arrangedSubviews {
+            if let textContainer = c as? TextFieldContainer {
+                textContainer.textField.sendActions(for: .editingChanged)
+            }
         }
     }
 }
