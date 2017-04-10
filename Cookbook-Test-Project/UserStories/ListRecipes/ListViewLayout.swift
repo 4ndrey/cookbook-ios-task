@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class ListViewLayout {
-    let root: UIView
+    private let root: UIView
 
     init(root: UIView) {
         self.root = root
@@ -25,7 +25,7 @@ class ListViewLayout {
 
         root.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(65)
+            make.top.equalTo(navBar.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
     }

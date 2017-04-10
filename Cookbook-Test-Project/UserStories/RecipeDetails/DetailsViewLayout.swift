@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class DetailsViewLayout {
-    let root: UIView
+    private let root: UIView
 
     init(root: UIView) {
         self.root = root
