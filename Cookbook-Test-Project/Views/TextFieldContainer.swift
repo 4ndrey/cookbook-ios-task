@@ -23,7 +23,7 @@ class TextFieldContainer: UIView {
         addSubview(textField)
         textField.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.height.equalTo(16)
+            make.height.equalTo(17)
         }
 
         let separator = UIView()

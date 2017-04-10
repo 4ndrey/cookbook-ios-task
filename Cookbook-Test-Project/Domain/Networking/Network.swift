@@ -11,14 +11,12 @@ import Alamofire
 import ReactiveSwift
 import Reqres
 
-
 struct NetworkError: Error {
     let error: NSError
     let request: URLRequest?
     let response: HTTPURLResponse?
+    let data: Data?
 }
-
-
 
 protocol Networking {
     func request(_ url: String, method: Alamofire.HTTPMethod, parameters: [String: Any]?, encoding: ParameterEncoding, headers: [String: String]?, useDisposables: Bool) -> SignalProducer<Any?, NetworkError>
@@ -42,14 +40,14 @@ class Network: Networking {
 
                     switch (data, error) {
                     case (_, .some(let e)):
-                        sink.send(error: NetworkError(error: e as NSError, request: request, response: response))
+                        sink.send(error: NetworkError(error: e as NSError, request: request, response: response, data: data))
                     case (.some(let d), _):
                         do {
                             let json = try JSONSerialization.jsonObject(with: d, options: .allowFragments)
                             sink.send(value: json)
                             sink.sendCompleted()
                         } catch {
-                            sink.send(error: NetworkError(error: (error as NSError), request: request, response: response))
+                            sink.send(error: NetworkError(error: (error as NSError), request: request, response: response, data: data))
                             return
                         }
                     default: assertionFailure()

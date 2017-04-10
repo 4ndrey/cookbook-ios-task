@@ -26,7 +26,7 @@ class LabeledTextContainer: UIView {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.top.equalToSuperview()
-            make.height.equalTo(16)
+            make.height.equalTo(17)
         }
 
         addSubview(container)
