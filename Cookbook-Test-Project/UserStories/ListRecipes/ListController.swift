@@ -49,7 +49,7 @@ class ListController: BaseViewController {
     }
 
     func addReceipt() {
-        push(AddController())
+        push(AddController(viewModel: AddViewModel()))
     }
 }
 

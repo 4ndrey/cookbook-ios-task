@@ -11,6 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,11 +22,10 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
-        setupUI()
     }
 
     func setupUI() {
-
+        // to be overriden
     }
 
     func push(_ vc: UIViewController) {

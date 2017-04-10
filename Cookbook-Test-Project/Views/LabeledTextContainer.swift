@@ -11,11 +11,11 @@ import SnapKit
 
 class LabeledTextContainer: UIView {
     let label: UILabel
-    let textField: TextFieldContainer
+    let container: TextFieldContainer
 
     override init(frame: CGRect) {
         label = UILabel()
-        textField = TextFieldContainer()
+        container = TextFieldContainer()
 
         super.init(frame: frame)
 
@@ -29,8 +29,8 @@ class LabeledTextContainer: UIView {
             make.height.equalTo(16)
         }
 
-        addSubview(textField)
-        textField.snp.makeConstraints { make in
+        addSubview(container)
+        container.snp.makeConstraints { make in
             make.left.equalTo(label)
             make.right.equalTo(label)
             make.top.equalTo(label.snp.bottom).offset(12)

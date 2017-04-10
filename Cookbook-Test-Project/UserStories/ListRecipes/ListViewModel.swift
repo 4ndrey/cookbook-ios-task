@@ -16,7 +16,7 @@ protocol ListViewModeling {
     func reload()
 }
 
-class ListViewModel: ListViewModeling {
+class ListViewModel: BaseViewModel, ListViewModeling {
     private let api: CookbookAPIServicing
     private var disposables = CompositeDisposable()
 
@@ -26,8 +26,9 @@ class ListViewModel: ListViewModeling {
     var errorMessage: Property<String?> { return Property(_errorMessage) }
     private let _errorMessage = MutableProperty<String?>(nil)
 
-    init() {
+    override init() {
         api = CookbookAPIService(network: Network(), authHandler: nil)
+        super.init()
     }
 
     deinit {
@@ -38,7 +39,7 @@ class ListViewModel: ListViewModeling {
         disposables += api.getRecipes()
             .observe(on: UIScheduler())
             .on(value: { self._recipes.value = $0 })
-            .on(failed: { self._errorMessage.value = $0.localizedDescription })
+            .on(failed: { self._errorMessage.value = self.handleError($0) })
             .start()
     }
 }

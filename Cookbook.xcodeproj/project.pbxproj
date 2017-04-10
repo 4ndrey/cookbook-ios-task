@@ -44,6 +44,8 @@
 		A1E209D51E9B96DA007AED3E /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209D41E9B96DA007AED3E /* NavButton.swift */; };
 		A1E209D71E9B9997007AED3E /* LabeledTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209D61E9B9997007AED3E /* LabeledTextContainer.swift */; };
 		A1E209D91E9BA1CA007AED3E /* IngredientsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209D81E9BA1CA007AED3E /* IngredientsContainer.swift */; };
+		A1E209DB1E9BB2E0007AED3E /* DurationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209DA1E9BB2E0007AED3E /* DurationContainer.swift */; };
+		A1E209DD1E9BC61A007AED3E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209DC1E9BC61A007AED3E /* BaseViewModel.swift */; };
 		A1E5A6D41E994D3800A8CA15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5A6D31E994D3800A8CA15 /* Colors.swift */; };
 		B4B8150C1E27831800C8A24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8150B1E27831800C8A24B /* Assets.xcassets */; };
 		B4B8150F1E27831800C8A24B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B8150D1E27831800C8A24B /* LaunchScreen.storyboard */; };
@@ -86,6 +88,8 @@
 		A1E209D41E9B96DA007AED3E /* NavButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		A1E209D61E9B9997007AED3E /* LabeledTextContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledTextContainer.swift; sourceTree = "<group>"; };
 		A1E209D81E9BA1CA007AED3E /* IngredientsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsContainer.swift; sourceTree = "<group>"; };
+		A1E209DA1E9BB2E0007AED3E /* DurationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationContainer.swift; sourceTree = "<group>"; };
+		A1E209DC1E9BC61A007AED3E /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A1E5A6D31E994D3800A8CA15 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B4B814FF1E27831800C8A24B /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B8150B1E27831800C8A24B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			children = (
 				A13722F21E99054F0084F01E /* BaseViewController.swift */,
 				A11EAD801E99423F00AB8F6E /* BaseCell.swift */,
+				A1E209DC1E9BC61A007AED3E /* BaseViewModel.swift */,
 				A11EAD7E1E9941F200AB8F6E /* TableAdapter.swift */,
 				A11EAD7C1E993AF400AB8F6E /* Fonts.swift */,
 				A1E5A6D31E994D3800A8CA15 /* Colors.swift */,
@@ -218,6 +223,7 @@
 				A18A514C1E9A9A580022D66F /* TextFieldContainer.swift */,
 				A1E209D61E9B9997007AED3E /* LabeledTextContainer.swift */,
 				A1E209D81E9BA1CA007AED3E /* IngredientsContainer.swift */,
+				A1E209DA1E9BB2E0007AED3E /* DurationContainer.swift */,
 				A18A515E1E9AC13F0022D66F /* BigTitleLabel.swift */,
 				A18A51601E9B339F0022D66F /* TimeView.swift */,
 				A18A51621E9B33A70022D66F /* ScoreView.swift */,
@@ -423,6 +429,7 @@
 				A13722EC1E9903240084F01E /* APIService.swift in Sources */,
 				A18A51471E9A8B490022D66F /* ListCell.swift in Sources */,
 				A1E209D71E9B9997007AED3E /* LabeledTextContainer.swift in Sources */,
+				A1E209DD1E9BC61A007AED3E /* BaseViewModel.swift in Sources */,
 				A18A515F1E9AC13F0022D66F /* BigTitleLabel.swift in Sources */,
 				A18A514F1E9AA0CA0022D66F /* ListViewLayout.swift in Sources */,
 				A18A51531E9AA2410022D66F /* NavLabel.swift in Sources */,
@@ -438,6 +445,7 @@
 				A18A51631E9B33A70022D66F /* ScoreView.swift in Sources */,
 				A18A51611E9B339F0022D66F /* TimeView.swift in Sources */,
 				A1E209D31E9B8868007AED3E /* AddViewModel.swift in Sources */,
+				A1E209DB1E9BB2E0007AED3E /* DurationContainer.swift in Sources */,
 				A18A51401E9A0D1D0022D66F /* BackButton.swift in Sources */,
 				A1E209D51E9B96DA007AED3E /* NavButton.swift in Sources */,
 			);

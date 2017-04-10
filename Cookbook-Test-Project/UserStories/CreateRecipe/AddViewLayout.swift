@@ -16,7 +16,7 @@ class AddViewLayout {
         self.root = root
     }
 
-    func layout(navBar: UIView, nameContainer: UIView, infoContainer: UIView, ingredientsView: UIView) {
+    func layout(navBar: UIView, nameContainer: UIView, infoContainer: UIView, ingredientsView: UIView, descContainer: UIView, timeContainer: UIView) {
         root.addSubview(navBar)
         navBar.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
@@ -44,6 +44,21 @@ class AddViewLayout {
             make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-30)
             make.top.equalTo(infoContainer.snp.bottom).offset(0)
+        }
+
+        root.addSubview(descContainer)
+        descContainer.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(30)
+            make.right.equalToSuperview().offset(-30)
+            make.top.equalTo(ingredientsView.snp.bottom).offset(28)
+            make.height.equalTo(86)
+        }
+
+        root.addSubview(timeContainer)
+        timeContainer.snp.makeConstraints { make in
+            make.top.equalTo(descContainer.snp.bottom)
+            make.left.right.equalTo(descContainer)
+            make.height.equalTo(44)
         }
     }
 }

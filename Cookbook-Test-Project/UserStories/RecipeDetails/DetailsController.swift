@@ -65,7 +65,7 @@ class DetailsController: BaseViewController {
     }
 
     func addReceipt() {
-        push(AddController())
+        push(AddController(viewModel: AddViewModel()))
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

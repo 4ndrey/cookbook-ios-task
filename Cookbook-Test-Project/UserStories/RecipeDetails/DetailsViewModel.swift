@@ -19,7 +19,7 @@ protocol DetailsViewModeling {
     func rate(score: Int)
 }
 
-class DetailsViewModel: DetailsViewModeling {
+class DetailsViewModel: BaseViewModel, DetailsViewModeling {
     private let api: CookbookAPIServicing
     private var disposables = CompositeDisposable()
 
@@ -32,6 +32,7 @@ class DetailsViewModel: DetailsViewModeling {
     required init(model: ReceiptViewModeling) {
         _receipt.value = model
         api = CookbookAPIService(network: Network(), authHandler: nil)
+        super.init()
     }
 
     deinit {
@@ -42,7 +43,7 @@ class DetailsViewModel: DetailsViewModeling {
         disposables += api.getRecipe(id: _receipt.value!.id)
             .observe(on: UIScheduler())
             .on(value: { self._receipt.value = $0 })
-            .on(failed: { self._errorMessage.value = $0.localizedDescription })
+            .on(failed: { self._errorMessage.value = self.handleError($0) })
             .start()
     }
 
@@ -50,7 +51,7 @@ class DetailsViewModel: DetailsViewModeling {
         disposables += api.rateRecipe(id: _receipt.value!.id, score: score)
             .observe(on: UIScheduler())
             .on(value: { self._receipt.value = Receipt.with(self.receipt.value!).updateScore($0.score) })
-            .on(failed: { self._errorMessage.value = $0.localizedDescription })
+            .on(failed: { self._errorMessage.value = self.handleError($0) })
             .start()
     }
 }

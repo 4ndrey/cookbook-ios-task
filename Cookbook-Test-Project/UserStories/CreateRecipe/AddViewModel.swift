@@ -10,11 +10,11 @@ import Foundation
 import ReactiveSwift
 
 struct AddReceiptInput {
-    var name: String
-    var info: String
-    var description: String
-    var ingredients: [String]
-    var duration: Int
+    let name: MutableProperty<String?>
+    let info: MutableProperty<String?>
+    let description: MutableProperty<String?>
+    let ingredients: MutableProperty<[String]?>
+    let duration: MutableProperty<Int?>
 }
 
 protocol AddViewModeling {
@@ -25,7 +25,7 @@ protocol AddViewModeling {
     func addReceipt()
 }
 
-class AddViewModel: AddViewModeling {
+class AddViewModel: BaseViewModel, AddViewModeling {
     let input: AddReceiptInput
     private let api: CookbookAPIServicing
     private var disposables = CompositeDisposable()
@@ -36,9 +36,11 @@ class AddViewModel: AddViewModeling {
     var errorMessage: Property<String?> { return Property(_errorMessage) }
     private let _errorMessage = MutableProperty<String?>(nil)
 
-    init() {
-        input = AddReceiptInput(name: "", info: "", description: "", ingredients: [], duration: 0)
+    override init() {
+        input = AddReceiptInput(name: MutableProperty(nil), info: MutableProperty(nil), description: MutableProperty(nil), ingredients: MutableProperty(nil), duration: MutableProperty(nil))
         api = CookbookAPIService(network: Network(), authHandler: nil)
+
+        super.init()
     }
 
     deinit {
@@ -46,10 +48,10 @@ class AddViewModel: AddViewModeling {
     }
 
     func addReceipt() {
-        disposables += api.createRecipe(name: input.name, description: input.description, info: input.info, duration: input.duration, ingredients: input.ingredients)
+        disposables += api.createRecipe(name: input.name.value ?? "", description: input.description.value ?? "", info: input.info.value ?? "", duration: input.duration.value ?? 0, ingredients: input.ingredients.value ?? [])
             .observe(on: UIScheduler())
             .on(value: { _ in self._onCreated.value = () })
-            .on(failed: { self._errorMessage.value = $0.localizedDescription })
+            .on(failed: { self._errorMessage.value = self.handleError($0) })
             .start()
     }
 }
