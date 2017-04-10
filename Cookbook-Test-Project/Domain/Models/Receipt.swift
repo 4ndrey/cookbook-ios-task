@@ -8,11 +8,11 @@
 
 import Himotoki
 
-struct Receipt: Decodable {
+struct Receipt: ReceiptViewModeling, Decodable {
     let id: String
     let name: String
     let duration: Int
-    let score: Int
+    let score: Float
 
     let description: String?
     let ingredients: [String]?
@@ -31,5 +31,15 @@ struct Receipt: Decodable {
             ingredients: e <||? "ingredients",
             info: e <|? "info"
         )
+    }
+}
+
+extension Receipt {
+    static func with(_ model: ReceiptViewModeling) -> Receipt {
+        return Receipt(id: model.id, name: model.name, duration: model.duration, score: model.score, description: model.description, ingredients: model.ingredients, info: model.info)
+    }
+
+    func updateScore(_ score: Float) -> Receipt {
+        return Receipt(id: id, name: name, duration: duration, score: score, description: description, ingredients: ingredients, info: info)
     }
 }

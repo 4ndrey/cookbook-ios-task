@@ -7,83 +7,49 @@
 //
 
 import UIKit
-import SnapKit
 
 class ListController: BaseViewController {
 
-    var tableAdapter: TableAdapter<Receipt, ListCell>?
-    var api: CookbookAPIServicing!
+    private var viewModel: ListViewModeling?
+    private var tableAdapter: TableAdapter<ReceiptViewModeling, ListCell>?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupUI()
-
-        self.api = CookbookAPIService(network: Network(), authHandler: nil)
-        api.getRecipes().startWithResult { [weak self] result in
-            switch result {
-            case .success(let items):
-                self?.tableAdapter?.update(collection: items)
-            case .failure(let error):
-                print(error)
-            }
-        }
+    convenience init(viewModel: ListViewModeling) {
+        self.init(nibName: nil, bundle: nil)
+        
+        viewModel.recipes.producer
+            .on(value: { self.tableAdapter?.update(collection: $0) })
+            .start()
+        viewModel.errorMessage.producer
+            .on(value: { self.displayErrorMessage($0) })
+            .start()
+        self.viewModel = viewModel
     }
 
-    func setupUI() {
-        view.backgroundColor = UIColor.white
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.reload()
+    }
 
-        let titleLabel = UILabel()
+    override func setupUI() {
+        // prepare nav bar
+        let addButton = AddButton(style: .blue)
+        addButton.addTarget(self, action: #selector(addReceipt), for: .primaryActionTriggered)
+        let navBar = NavBar(title: "Recepty".localized(), rightItem: addButton)
 
-        let attributes: NSDictionary = [
-            NSFontAttributeName:UIFont.base(),
-            NSForegroundColorAttributeName:UIColor.baseBlack,
-            NSKernAttributeName:-0.4
-        ]
-
-        let attributedTitle = NSAttributedString(string: "Recepty", attributes: attributes as? [String : AnyObject])
-
-        titleLabel.attributedText = attributedTitle
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(32)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(20)
-        }
-
-        let addButton = UIButton()
-        addButton.setImage(#imageLiteral(resourceName: "ic_add"), for: .normal)
-        addButton.addTarget(self, action: #selector(addReceipt), for: .touchUpInside)
-        view.addSubview(addButton)
-        addButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(32)
-            make.right.equalToSuperview().offset(-15)
-            make.height.width.equalTo(22)
-        }
-
+        // prepare table view
         let tableView = UITableView()
         tableView.rowHeight = 142
         tableView.separatorStyle = .none
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(65)
-            make.left.right.bottom.equalToSuperview()
-        }
+        
         tableAdapter = TableAdapter(tableView: tableView)
-        tableAdapter?.didSelect = { receipt in
-            self.navigationController?.pushViewController(DetailsController(), animated: true)
+        tableAdapter?.didSelect = { [weak self] receipt in self?.push(DetailsController(viewModel: DetailsViewModel(model: receipt))) }
 
-            self.api.getRecipe(id: receipt.id).startWithResult { result in
-                print(result)
-            }
-//            self.api.rateRecipe(id: receipt.id, score: 4).startWithResult { _ in }
-        }
-
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_add"), style: .plain, target: self, action: #selector(addReceipt))
+        // layout views
+        ListViewLayout(root: view).layout(navBar: navBar, tableView: tableView)
     }
 
     func addReceipt() {
-        navigationController?.pushViewController(AddController(), animated: true)
+        push(AddController())
     }
 }
 

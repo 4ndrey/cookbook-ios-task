@@ -13,8 +13,9 @@ class ListCell: BaseCell {
 
     var titleLabel: UILabel
     var valuesView: UIStackView
-    var scoreView: UIStackView
-    var durationLabel: UILabel
+    var scoreContainer: UIView
+    var scoreView: ScoreView
+    var timeView: TimeView
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = UILabel()
@@ -26,18 +27,34 @@ class ListCell: BaseCell {
         valuesView.axis = .vertical
         valuesView.spacing = 10
 
-        scoreView = UIStackView()
-        scoreView.axis = .horizontal
-        scoreView.distribution = .fillEqually
-        scoreView.alignment = .fill
-
-        durationLabel = UILabel()
-        durationLabel.font = UIFont.base(size: 15)
-        durationLabel.textColor = UIColor.baseBlack
-        durationLabel.textAlignment = .left
+        scoreContainer = UIView()
+        scoreView = ScoreView(style: .magenta, height: 16)
+        timeView = TimeView(style: .black)
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        layout()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func updateWithItem(_ item: Any) {
+        if let item = item as? Receipt {
+            titleLabel.text = item.name
+            timeView.time = item.duration
+            scoreView.score = item.score
+            if item.score > 0 {
+                valuesView.insertArrangedSubview(scoreContainer, at: 0)
+            }
+            else {
+                scoreContainer.removeFromSuperview()
+            }
+        }
+    }
+
+    private func layout() {
         let iconView = UIImageView(image: #imageLiteral(resourceName: "img_small"))
         contentView.addSubview(iconView)
         iconView.snp.makeConstraints { make in
@@ -60,38 +77,17 @@ class ListCell: BaseCell {
             make.right.equalTo(titleLabel)
         }
 
-        let container1 = UIView()
-        valuesView.addArrangedSubview(container1)
-        container1.snp.makeConstraints { make in
+        valuesView.addArrangedSubview(scoreContainer)
+        scoreContainer.snp.makeConstraints { make in
             make.height.equalTo(16)
         }
 
-        container1.addSubview(scoreView)
+        scoreContainer.addSubview(scoreView)
         scoreView.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
         }
 
-        let container2 = UIView()
-        valuesView.addArrangedSubview(container2)
-        container2.snp.makeConstraints { make in
-            make.height.equalTo(18)
-        }
-
-        let timeIcon = UIImageView(image: #imageLiteral(resourceName: "ic_time"))
-        container2.addSubview(timeIcon)
-        timeIcon.snp.makeConstraints { make in
-            make.left.equalToSuperview()
-            make.centerY.equalTo(container2)
-            make.height.width.equalTo(14)
-        }
-
-        container2.addSubview(durationLabel)
-        durationLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(container2)
-            make.left.equalTo(timeIcon.snp.right).offset(9)
-            make.height.equalTo(18)
-            make.right.equalToSuperview()
-        }
+        valuesView.addArrangedSubview(timeView)
 
         let separator = UIView()
         separator.backgroundColor = UIColor.separator
@@ -101,32 +97,6 @@ class ListCell: BaseCell {
             make.left.equalToSuperview().offset(14)
             make.right.equalToSuperview().offset(-15)
             make.height.equalTo(2)
-        }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func updateWithItem(_ item: Any) {
-        if let item = item as? Receipt {
-            titleLabel.text = item.name
-            durationLabel.text = "\(item.duration) min."
-
-            if item.score > 0 {
-                valuesView.insertArrangedSubview(scoreView.superview!, at: 0)
-                scoreView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-                for _ in 1...item.score {
-                    let star = UIImageView(image: #imageLiteral(resourceName: "ic_star"))
-                    scoreView.addArrangedSubview(star)
-                    star.snp.makeConstraints { make in
-                        make.height.width.equalTo(16)
-                    }
-                }
-            }
-            else {
-                scoreView.superview!.removeFromSuperview()
-            }
         }
     }
 }

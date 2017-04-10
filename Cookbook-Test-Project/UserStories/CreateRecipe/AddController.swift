@@ -12,8 +12,6 @@ class AddController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.white
-
         let titleLabel = UILabel()
 
         let attributes: NSDictionary = [
@@ -32,7 +30,7 @@ class AddController: BaseViewController {
             make.height.equalTo(20)
         }
 
-        let backButton = BlueBackButton()
+        let backButton = BackButton(style: .blue)
         backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
         view.addSubview(backButton)
         backButton.snp.makeConstraints { make in

@@ -12,9 +12,9 @@ import ReactiveSwift
 import Result
 
 protocol CookbookAPIServicing {
-    func getRecipes() -> SignalProducer<[Receipt],RequestError>
+    func getRecipes() -> SignalProducer<[Receipt], RequestError>
     func getRecipe(id: String) -> SignalProducer<Receipt, RequestError>
-    func rateRecipe(id: String, score: Int) -> SignalProducer<Void, RequestError>
+    func rateRecipe(id: String, score: Int) -> SignalProducer<Score, RequestError>
     func createRecipe(name: String, description: String, info: String, duration: Int, ingredients: [String]) -> SignalProducer<Receipt, RequestError>
 }
 
@@ -46,13 +46,17 @@ class CookbookAPIService : APIService, CookbookAPIServicing {
                 guard let item = response else { return Result.failure(RequestError.mapping()) }
                 do { return Result.success(try Receipt.decodeValue(item)) }
                 catch { return Result.failure(RequestError.mapping()) }
-        }
+            }
     }
 
-    func rateRecipe(id: String, score: Int) -> SignalProducer<Void, RequestError> {
+    func rateRecipe(id: String, score: Int) -> SignalProducer<Score, RequestError> {
         return self.request("recipes/\(id)/ratings", method: .post, parameters: ["score": score], encoding: JSONEncoding.default)
             .mapError { .network($0) }
-            .map { _ in }
+            .attemptMap { response in
+                guard let item = response else { return Result.failure(RequestError.mapping()) }
+                do { return Result.success(try Score.decodeValue(item)) }
+                catch { return Result.failure(RequestError.mapping()) }
+            }
     }
 
     func createRecipe(name: String, description: String, info: String, duration: Int, ingredients: [String]) -> SignalProducer<Receipt, RequestError> {

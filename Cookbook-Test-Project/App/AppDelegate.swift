@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reqres
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let navController = UINavigationController(rootViewController: ListController())
+        Reqres.logger.logLevel = .light
+
+        let navController = UINavigationController(rootViewController: ListController(viewModel: ListViewModel()))
         navController.isNavigationBarHidden = true
 
         window = UIWindow(frame: UIScreen.main.bounds)

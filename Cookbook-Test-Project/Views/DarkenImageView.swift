@@ -14,6 +14,8 @@ class DarkenImageView: UIImageView {
     override init(image: UIImage?) {
         super.init(image: image)
 
+        contentMode = .scaleAspectFill
+
         gradientLayer.shouldRasterize = true
         gradientLayer.colors = [UIColor(white: 0, alpha: 0.7).cgColor, UIColor(white: 0, alpha: 0.4).cgColor]
         gradientLayer.locations = [0, 0.8]

@@ -24,6 +24,23 @@
 		A18A51441E9A54470022D66F /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51431E9A54470022D66F /* AddController.swift */; };
 		A18A51471E9A8B490022D66F /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51461E9A8B490022D66F /* ListCell.swift */; };
 		A18A514D1E9A9A580022D66F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A514C1E9A9A580022D66F /* TextField.swift */; };
+		A18A514F1E9AA0CA0022D66F /* ListViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A514E1E9AA0CA0022D66F /* ListViewLayout.swift */; };
+		A18A51511E9AA1540022D66F /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51501E9AA1540022D66F /* NavBar.swift */; };
+		A18A51531E9AA2410022D66F /* NavLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51521E9AA2410022D66F /* NavLabel.swift */; };
+		A18A51551E9AA6E80022D66F /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51541E9AA6E80022D66F /* AddButton.swift */; };
+		A18A51571E9AA8B80022D66F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51561E9AA8B80022D66F /* ListViewModel.swift */; };
+		A18A51591E9ABA450022D66F /* DetailsViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51581E9ABA450022D66F /* DetailsViewLayout.swift */; };
+		A18A515B1E9ABA8E0022D66F /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A515A1E9ABA8E0022D66F /* DetailsViewModel.swift */; };
+		A18A515D1E9ABCAC0022D66F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A515C1E9ABCAC0022D66F /* Score.swift */; };
+		A18A515F1E9AC13F0022D66F /* BigTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A515E1E9AC13F0022D66F /* BigTitleLabel.swift */; };
+		A18A51611E9B339F0022D66F /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51601E9B339F0022D66F /* TimeView.swift */; };
+		A18A51631E9B33A70022D66F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A51621E9B33A70022D66F /* ScoreView.swift */; };
+		A1E209C91E9B3C06007AED3E /* ReceiptViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209C81E9B3C06007AED3E /* ReceiptViewModeling.swift */; };
+		A1E209CB1E9B3E19007AED3E /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209CA1E9B3E19007AED3E /* TextView.swift */; };
+		A1E209CD1E9B4046007AED3E /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209CC1E9B4046007AED3E /* ScrollView.swift */; };
+		A1E209CF1E9B4434007AED3E /* RateControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209CE1E9B4434007AED3E /* RateControl.swift */; };
+		A1E209D11E9B885F007AED3E /* AddViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209D01E9B885F007AED3E /* AddViewLayout.swift */; };
+		A1E209D31E9B8868007AED3E /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E209D21E9B8868007AED3E /* AddViewModel.swift */; };
 		A1E5A6D41E994D3800A8CA15 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E5A6D31E994D3800A8CA15 /* Colors.swift */; };
 		B4B8150C1E27831800C8A24B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B8150B1E27831800C8A24B /* Assets.xcassets */; };
 		B4B8150F1E27831800C8A24B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B8150D1E27831800C8A24B /* LaunchScreen.storyboard */; };
@@ -46,6 +63,23 @@
 		A18A51431E9A54470022D66F /* AddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 		A18A51461E9A8B490022D66F /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		A18A514C1E9A9A580022D66F /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		A18A514E1E9AA0CA0022D66F /* ListViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewLayout.swift; sourceTree = "<group>"; };
+		A18A51501E9AA1540022D66F /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		A18A51521E9AA2410022D66F /* NavLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavLabel.swift; sourceTree = "<group>"; };
+		A18A51541E9AA6E80022D66F /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		A18A51561E9AA8B80022D66F /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A18A51581E9ABA450022D66F /* DetailsViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewLayout.swift; sourceTree = "<group>"; };
+		A18A515A1E9ABA8E0022D66F /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		A18A515C1E9ABCAC0022D66F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		A18A515E1E9AC13F0022D66F /* BigTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTitleLabel.swift; sourceTree = "<group>"; };
+		A18A51601E9B339F0022D66F /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		A18A51621E9B33A70022D66F /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		A1E209C81E9B3C06007AED3E /* ReceiptViewModeling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptViewModeling.swift; sourceTree = "<group>"; };
+		A1E209CA1E9B3E19007AED3E /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		A1E209CC1E9B4046007AED3E /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		A1E209CE1E9B4434007AED3E /* RateControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateControl.swift; sourceTree = "<group>"; };
+		A1E209D01E9B885F007AED3E /* AddViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewLayout.swift; sourceTree = "<group>"; };
+		A1E209D21E9B8868007AED3E /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		A1E5A6D31E994D3800A8CA15 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B4B814FF1E27831800C8A24B /* Cookbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cookbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B8150B1E27831800C8A24B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				A18A51431E9A54470022D66F /* AddController.swift */,
+				A1E209D01E9B885F007AED3E /* AddViewLayout.swift */,
+				A1E209D21E9B8868007AED3E /* AddViewModel.swift */,
 			);
 			path = CreateRecipe;
 			sourceTree = "<group>";
@@ -116,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				A13722E01E98AE800084F01E /* ListController.swift */,
+				A18A514E1E9AA0CA0022D66F /* ListViewLayout.swift */,
+				A18A51561E9AA8B80022D66F /* ListViewModel.swift */,
 			);
 			path = ListRecipes;
 			sourceTree = "<group>";
@@ -124,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				A18A513A1E99F6310022D66F /* DetailsController.swift */,
+				A18A51581E9ABA450022D66F /* DetailsViewLayout.swift */,
+				A18A515A1E9ABA8E0022D66F /* DetailsViewModel.swift */,
 			);
 			path = RecipeDetails;
 			sourceTree = "<group>";
@@ -132,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				A13722EF1E9903380084F01E /* Receipt.swift */,
+				A1E209C81E9B3C06007AED3E /* ReceiptViewModeling.swift */,
+				A18A515C1E9ABCAC0022D66F /* Score.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,9 +203,18 @@
 		A18A513C1E99F8E60022D66F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A18A51501E9AA1540022D66F /* NavBar.swift */,
+				A18A51521E9AA2410022D66F /* NavLabel.swift */,
 				A18A513D1E99F8F40022D66F /* DarkenImageView.swift */,
+				A18A51541E9AA6E80022D66F /* AddButton.swift */,
 				A18A513F1E9A0D1D0022D66F /* BackButton.swift */,
 				A18A514C1E9A9A580022D66F /* TextField.swift */,
+				A18A515E1E9AC13F0022D66F /* BigTitleLabel.swift */,
+				A18A51601E9B339F0022D66F /* TimeView.swift */,
+				A18A51621E9B33A70022D66F /* ScoreView.swift */,
+				A1E209CA1E9B3E19007AED3E /* TextView.swift */,
+				A1E209CC1E9B4046007AED3E /* ScrollView.swift */,
+				A1E209CE1E9B4434007AED3E /* RateControl.swift */,
 			);
 			name = Views;
 			path = "Cookbook-Test-Project/Views";
@@ -345,20 +396,37 @@
 			files = (
 				A18A513B1E99F6310022D66F /* DetailsController.swift in Sources */,
 				A11EAD811E99423F00AB8F6E /* BaseCell.swift in Sources */,
+				A1E209C91E9B3C06007AED3E /* ReceiptViewModeling.swift in Sources */,
+				A18A51511E9AA1540022D66F /* NavBar.swift in Sources */,
 				A1E5A6D41E994D3800A8CA15 /* Colors.swift in Sources */,
+				A18A51591E9ABA450022D66F /* DetailsViewLayout.swift in Sources */,
 				A11EAD7D1E993AF400AB8F6E /* Fonts.swift in Sources */,
 				A13722F01E9903380084F01E /* Receipt.swift in Sources */,
 				A13722EE1E9903240084F01E /* Network.swift in Sources */,
+				A1E209CB1E9B3E19007AED3E /* TextView.swift in Sources */,
 				A18A514D1E9A9A580022D66F /* TextField.swift in Sources */,
 				A13722E61E98AE800084F01E /* ListController.swift in Sources */,
 				A11EAD7F1E9941F200AB8F6E /* TableAdapter.swift in Sources */,
+				A18A515B1E9ABA8E0022D66F /* DetailsViewModel.swift in Sources */,
+				A18A51571E9AA8B80022D66F /* ListViewModel.swift in Sources */,
 				A13722ED1E9903240084F01E /* CookbookAPIService.swift in Sources */,
 				A13722EC1E9903240084F01E /* APIService.swift in Sources */,
 				A18A51471E9A8B490022D66F /* ListCell.swift in Sources */,
+				A18A515F1E9AC13F0022D66F /* BigTitleLabel.swift in Sources */,
+				A18A514F1E9AA0CA0022D66F /* ListViewLayout.swift in Sources */,
+				A18A51531E9AA2410022D66F /* NavLabel.swift in Sources */,
+				A18A51551E9AA6E80022D66F /* AddButton.swift in Sources */,
+				A18A515D1E9ABCAC0022D66F /* Score.swift in Sources */,
 				A18A51441E9A54470022D66F /* AddController.swift in Sources */,
 				A13722F31E99054F0084F01E /* BaseViewController.swift in Sources */,
+				A1E209CF1E9B4434007AED3E /* RateControl.swift in Sources */,
+				A1E209D11E9B885F007AED3E /* AddViewLayout.swift in Sources */,
+				A1E209CD1E9B4046007AED3E /* ScrollView.swift in Sources */,
 				A13722E21E98AE800084F01E /* AppDelegate.swift in Sources */,
 				A18A513E1E99F8F40022D66F /* DarkenImageView.swift in Sources */,
+				A18A51631E9B33A70022D66F /* ScoreView.swift in Sources */,
+				A18A51611E9B339F0022D66F /* TimeView.swift in Sources */,
+				A1E209D31E9B8868007AED3E /* AddViewModel.swift in Sources */,
 				A18A51401E9A0D1D0022D66F /* BackButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
