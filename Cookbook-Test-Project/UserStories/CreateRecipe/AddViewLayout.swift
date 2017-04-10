@@ -16,14 +16,35 @@ class AddViewLayout {
         self.root = root
     }
 
-    func layout(navBar: UIView, nameContainer: UIView, infoContainer: UIView, ingredientsView: UIView, descContainer: UIView, timeContainer: UIView) {
+    func layout(navBar: UIView, scrollView: UIView, nameContainer: UIView, infoContainer: UIView, ingredientsView: UIView, descContainer: UIView, timeContainer: UIView) {
         root.addSubview(navBar)
         navBar.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
             make.height.equalTo(64)
         }
 
-        root.addSubview(nameContainer)
+        root.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(navBar.snp.bottom)
+        }
+
+        let placeholder = UIView()
+        scrollView.addSubview(placeholder)
+        placeholder.snp.makeConstraints { make in
+            make.left.right.top.equalToSuperview()
+            make.width.equalTo(navBar)
+        }
+
+        scrollView.addSubview(nameContainer)
+        nameContainer.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(30)
+            make.right.equalToSuperview().offset(-30)
+            make.top.equalToSuperview().offset(43)
+            make.height.equalTo(86)
+        }
+
+        scrollView.addSubview(nameContainer)
         nameContainer.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-30)
@@ -31,7 +52,7 @@ class AddViewLayout {
             make.height.equalTo(86)
         }
 
-        root.addSubview(infoContainer)
+        scrollView.addSubview(infoContainer)
         infoContainer.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-30)
@@ -39,14 +60,14 @@ class AddViewLayout {
             make.height.equalTo(86)
         }
 
-        root.addSubview(ingredientsView)
+        scrollView.addSubview(ingredientsView)
         ingredientsView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-30)
             make.top.equalTo(infoContainer.snp.bottom).offset(0)
         }
 
-        root.addSubview(descContainer)
+        scrollView.addSubview(descContainer)
         descContainer.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-30)
@@ -54,11 +75,12 @@ class AddViewLayout {
             make.height.equalTo(86)
         }
 
-        root.addSubview(timeContainer)
+        scrollView.addSubview(timeContainer)
         timeContainer.snp.makeConstraints { make in
             make.top.equalTo(descContainer.snp.bottom)
             make.left.right.equalTo(descContainer)
             make.height.equalTo(44)
+            make.bottom.equalToSuperview()
         }
     }
 }

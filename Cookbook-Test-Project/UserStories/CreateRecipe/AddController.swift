@@ -15,6 +15,7 @@ class AddController: BaseViewController {
     private var viewModel: AddViewModeling?
 
     private var createButton: NavButton!
+    private var scrollView: UIScrollView!
     private var nameContainer: LabeledTextContainer!
     private var infoContainer: LabeledTextContainer!
     private var ingredientsView: IngredientsContainer!
@@ -54,6 +55,9 @@ class AddController: BaseViewController {
         let navBar = NavBar(title: "Přidat recept".localized(), leftItem: backButton, rightItem: createButton)
 
         // prepare views
+        scrollView = UIScrollView()
+        scrollView.keyboardDismissMode = .interactive
+
         nameContainer = LabeledTextContainer()
         nameContainer.label.text = "Název receptu".localized().uppercased()
 
@@ -68,7 +72,7 @@ class AddController: BaseViewController {
         durationContainer = DurationContainer()
 
         // layout views
-        AddViewLayout(root: view).layout(navBar: navBar, nameContainer: nameContainer, infoContainer: infoContainer, ingredientsView: ingredientsView, descContainer: descContainer, timeContainer: durationContainer)
+        AddViewLayout(root: view).layout(navBar: navBar, scrollView: scrollView, nameContainer: nameContainer, infoContainer: infoContainer, ingredientsView: ingredientsView, descContainer: descContainer, timeContainer: durationContainer)
     }
 
     func addReceipt() {
