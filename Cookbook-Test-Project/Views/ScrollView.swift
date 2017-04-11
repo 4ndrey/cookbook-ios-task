@@ -27,18 +27,14 @@ class ScrollView: UIScrollView, UIScrollViewDelegate {
         if coverView == nil { return }
 
         let delta = scrollView.contentOffset.y - lastOffsetY
-        if scrollView.contentOffset.y > 0 {
-            if delta > 0 {
-                for constraint in coverView!.constraints {
-                    if constraint.firstAttribute == .height {
+        for constraint in coverView!.constraints {
+            if constraint.firstAttribute == .height {
+                if scrollView.contentOffset.y > 0 {
+                    if delta > 0 {
                         constraint.constant = max(minHeight, constraint.constant - delta)
                     }
                 }
-            }
-        }
-        else {
-            for constraint in coverView!.constraints {
-                if constraint.firstAttribute == .height {
+                else {
                     constraint.constant = UIScreen.main.bounds.width
                 }
             }
